@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nama_pelapor');
             $table->string('lokasi');
-            $table->string('tinggi_genangan'); 
-            $table->string('tanggal_kejadian');
+            $table->integer('tinggi_genangan'); // satuan cm
+            $table->date('tanggal_kejadian');
             $table->timestamps();
         });
     }
