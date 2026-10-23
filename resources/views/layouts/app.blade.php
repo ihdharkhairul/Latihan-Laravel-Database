@@ -16,8 +16,6 @@
             --accent-hover: #4a809f;
             --accent-soft: #eaf3f8;
             --radius: 10px;
-
-            /* Ganti link gambar latar di sini */
             --bg-image: url('https://i.pinimg.com/1200x/0c/fe/0d/0cfe0dd30f6b52732ed272f9587442db.jpg');
         }
 
@@ -37,58 +35,36 @@
                 var(--bg);
         }
 
-        /* ---------- Header ---------- */
-        header {
-            background: rgba(255, 255, 255, .92);
-            border-bottom: 1px solid var(--line);
-        }
+        header { background: rgba(255, 255, 255, .92); border-bottom: 1px solid var(--line); }
         .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 14px 24px;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 10px; max-width: 960px; margin: 0 auto; padding: 14px 24px;
         }
         .brand { font-size: 17px; font-weight: 600; letter-spacing: -.01em; }
-        .brand small {
-            display: block;
-            font-size: 12px;
-            font-weight: 400;
-            color: var(--muted);
-            letter-spacing: 0;
-        }
+        .brand small { display: block; font-size: 12px; font-weight: 400; color: var(--muted); letter-spacing: 0; }
 
-        nav { display: flex; gap: 4px; }
+        nav { display: flex; align-items: center; gap: 4px; }
         nav a {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 14px;
-            padding: 7px 14px;
-            border-radius: 8px;
-            transition: background .15s, color .15s;
+            color: var(--muted); text-decoration: none; font-size: 14px;
+            padding: 7px 14px; border-radius: 8px; transition: background .15s, color .15s;
         }
         nav a:hover { background: var(--bg); color: var(--text); }
         nav a.active { background: var(--accent-soft); color: var(--accent-hover); font-weight: 500; }
 
-        /* ---------- Konten ---------- */
-        main {
-            flex: 1;
-            width: 100%;
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 44px 24px 56px;
+        /* Tombol logout di navbar */
+        nav form { display: inline; }
+        nav button {
+            font-family: inherit; font-size: 14px; color: var(--muted);
+            background: none; border: none; padding: 7px 14px; border-radius: 8px;
+            cursor: pointer; transition: background .15s, color .15s;
         }
+        nav button:hover { background: var(--bg); color: var(--text); }
+
+        main { flex: 1; width: 100%; max-width: 960px; margin: 0 auto; padding: 44px 24px 56px; }
 
         .panel {
-            max-width: 480px;
-            margin: 0 auto;
-            padding: 32px;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
+            max-width: 480px; margin: 0 auto; padding: 32px;
+            background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
         }
         .panel-wide { max-width: 720px; }
 
@@ -97,75 +73,47 @@
         h2 { font-size: 24px; }
         .subtitle { color: var(--muted); margin-bottom: 26px; }
 
-        /* ---------- Form ---------- */
         .field { margin-bottom: 18px; }
         .field label { display: block; font-size: 13.5px; font-weight: 500; margin-bottom: 6px; }
         .field input {
-            width: 100%;
-            padding: 10px 12px;
-            font-family: inherit;
-            font-size: 15px;
-            color: var(--text);
-            background: var(--surface);
-            border: 1px solid #d5dde4;
-            border-radius: 8px;
-            outline: none;
-            transition: border-color .15s, box-shadow .15s;
+            width: 100%; padding: 10px 12px; font-family: inherit; font-size: 15px;
+            color: var(--text); background: var(--surface); border: 1px solid #d5dde4;
+            border-radius: 8px; outline: none; transition: border-color .15s, box-shadow .15s;
         }
         .field input::placeholder { color: #a7b4bf; }
-        .field input:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(91, 148, 181, .18);
-        }
+        .field input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(91, 148, 181, .18); }
         .error-text { display: block; margin-top: 5px; font-size: 13px; color: #b94a48; }
+        .checkbox { display: flex; align-items: center; gap: 8px; margin-bottom: 18px; font-size: 14px; }
 
         .btn {
-            display: inline-block;
-            margin-top: 6px;
-            padding: 10px 22px;
-            font-family: inherit;
-            font-size: 14.5px;
-            font-weight: 500;
-            color: #fff;
-            background: var(--accent);
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background .15s;
+            display: inline-block; margin-top: 6px; padding: 10px 22px; font-family: inherit;
+            font-size: 14.5px; font-weight: 500; color: #fff; background: var(--accent);
+            border: none; border-radius: 8px; cursor: pointer; transition: background .15s;
         }
         .btn:hover { background: var(--accent-hover); }
         .btn-block { width: 100%; }
         .link-back { color: var(--accent-hover); font-size: 14.5px; text-decoration: none; }
         .link-back:hover { text-decoration: underline; }
 
-        /* ---------- Konfirmasi ---------- */
         .detail {
-            display: flex;
-            justify-content: space-between;
-            gap: 16px;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--line);
+            display: flex; justify-content: space-between; gap: 16px;
+            padding: 12px 0; border-bottom: 1px solid var(--line);
         }
         .detail:last-of-type { border-bottom: none; }
         .detail span { color: var(--muted); font-size: 14px; }
         .detail strong { font-weight: 500; text-align: right; }
 
-        /* ---------- Alert ---------- */
         .alert { padding: 11px 14px; margin: 18px 0 8px; font-size: 14px; border-radius: 8px; }
         .alert-success { background: #eef7f1; color: #2f6b4a; }
         .alert-error   { background: #fbeeee; color: #9b3d3d; }
 
-        /* ---------- Daftar & Kartu ---------- */
         .page-head { margin-bottom: 26px; text-align: center; }
         .page-head .subtitle { margin: 6px 0 0; }
         .grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
 
         .laporan-card {
-            padding: 20px;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-            width: 290px;
+            padding: 20px; background: var(--surface); border: 1px solid var(--line);
+            border-radius: var(--radius); width: 290px;
         }
         .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 12px; }
         .card-top h3 { font-size: 16px; font-weight: 600; line-height: 1.35; }
@@ -179,27 +127,14 @@
 
         .empty { width: 100%; padding: 40px 0; text-align: center; color: var(--muted); }
 
-        /* ---------- Tabel ---------- */
-        .table-wrap {
-            overflow-x: auto;
-            background: var(--surface);
-            border: 1px solid var(--line);
-            border-radius: var(--radius);
-        }
+        .table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
         table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
         th, td { padding: 12px 18px; text-align: left; }
-        th {
-            font-size: 12.5px;
-            font-weight: 500;
-            color: var(--muted);
-            background: #fafcfd;
-            border-bottom: 1px solid var(--line);
-        }
+        th { font-size: 12.5px; font-weight: 500; color: var(--muted); background: #fafcfd; border-bottom: 1px solid var(--line); }
         td { border-bottom: 1px solid var(--line); }
         tbody tr:last-child td { border-bottom: none; }
         tbody tr:hover { background: #fafcfd; }
 
-        /* ---------- Footer ---------- */
         footer { padding: 20px; text-align: center; font-size: 13px; color: var(--muted); }
 
         @media (max-width: 600px) {
@@ -219,7 +154,18 @@
             </div>
             <nav>
                 <a href="{{ route('banjir.form') }}" class="{{ request()->routeIs('banjir.form') ? 'active' : '' }}">Form Laporan</a>
-                <a href="{{ route('banjir.daftar') }}" class="{{ request()->routeIs('banjir.daftar') ? 'active' : '' }}">Daftar Laporan</a>
+
+                @auth
+                    <a href="{{ route('banjir.daftar') }}" class="{{ request()->routeIs('banjir.daftar') ? 'active' : '' }}">Daftar Laporan</a>
+                    <a href="{{ route('profil') }}" class="{{ request()->routeIs('profil') ? 'active' : '' }}">Profil Petugas</a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit">Logout</button>
+                    </form>
+                @else
+                    <a href="{{ route('login') }}" class="{{ request()->routeIs('login') ? 'active' : '' }}">Login</a>
+                    <a href="{{ route('register') }}" class="{{ request()->routeIs('register') ? 'active' : '' }}">Register</a>
+                @endauth
             </nav>
         </div>
     </header>
