@@ -135,6 +135,46 @@
         tbody tr:last-child td { border-bottom: none; }
         tbody tr:hover { background: #fafcfd; }
 
+                /* ===== Tambahan Modul 7 ===== */
+        .field textarea, .field select {
+            width: 100%; padding: 10px 12px; font-family: inherit; font-size: 15px;
+            color: var(--text); background: var(--surface); border: 1px solid #d5dde4;
+            border-radius: 8px; outline: none; transition: border-color .15s, box-shadow .15s;
+        }
+        .field textarea { resize: vertical; min-height: 90px; }
+        .field textarea:focus, .field select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(91, 148, 181, .18); }
+        .field input[type="file"] { padding: 8px 10px; background: var(--bg); }
+        .field .hint { display: block; margin-top: 5px; font-size: 12.5px; color: var(--muted); }
+
+        .thumb { display: block; width: 64px; height: 48px; object-fit: cover; border-radius: 6px; border: 1px solid var(--line); }
+        .thumb-kosong { width: 64px; height: 48px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--muted); background: var(--bg); border: 1px dashed var(--line); border-radius: 6px; }
+        .foto-besar { display: block; max-width: 100%; margin-top: 10px; border-radius: 8px; border: 1px solid var(--line); }
+
+        .badge-menunggu { color: #7d6511; background: #fbf3d3; }
+        .badge-diproses { color: #2d5f8a; background: #e3eefa; }
+        .badge-selesai  { color: #2f6b4a; background: #e5f4ea; }
+
+        .aksi { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+        .aksi form { display: inline; }
+        .btn-sm {
+            display: inline-block; margin: 0; padding: 5px 12px; font-family: inherit; font-size: 13px; font-weight: 500;
+            color: var(--text); background: var(--surface); border: 1px solid var(--line); border-radius: 6px;
+            text-decoration: none; cursor: pointer; transition: background .15s;
+        }
+        .btn-sm:hover { background: var(--bg); }
+        .btn-hapus { color: #a13c3c; border-color: #f0cccc; }
+        .btn-hapus:hover { background: #fbeeee; }
+
+        .pager { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px; margin-top: 20px; }
+        .pager a, .pager span {
+            padding: 6px 12px; font-size: 14px; color: var(--text); background: var(--surface);
+            border: 1px solid var(--line); border-radius: 6px; text-decoration: none;
+        }
+        .pager a:hover { background: var(--accent-soft); }
+        .pager .current { color: #fff; background: var(--accent); border-color: var(--accent); }
+        .pager .disabled { color: var(--muted); background: var(--bg); }
+        .pager-info { margin-top: 14px; text-align: center; font-size: 13px; color: var(--muted); }
+
         footer { padding: 20px; text-align: center; font-size: 13px; color: var(--muted); }
 
         @media (max-width: 600px) {
@@ -156,7 +196,7 @@
                 <a href="{{ route('banjir.form') }}" class="{{ request()->routeIs('banjir.form') ? 'active' : '' }}">Form Laporan</a>
 
                 @auth
-                    <a href="{{ route('banjir.daftar') }}" class="{{ request()->routeIs('banjir.daftar') ? 'active' : '' }}">Daftar Laporan</a>
+                                        <a href="{{ route('laporan.index') }}" class="{{ request()->routeIs('laporan.*') ? 'active' : '' }}">Daftar Laporan</a>
                     <a href="{{ route('profil') }}" class="{{ request()->routeIs('profil') ? 'active' : '' }}">Profil Petugas</a>
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
@@ -170,9 +210,14 @@
         </div>
     </header>
 
-    <main>
+        <main>
+        {{-- Pesan berhasil dari controller (with('success', ...)) --}}
+        @if (session('success'))
+            <x-alert type="success" :message="session('success')" />
+        @endif
+
         @yield('content')
-    </main>
+        </main>
 
     <footer>
         &copy; 2026 LaporBanjir &middot; BPBD Kabupaten Bandung
